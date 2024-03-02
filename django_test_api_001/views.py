@@ -43,7 +43,6 @@ class ViewDetail_Two(generics.ListAPIView):
     def detail(self, request, pk, year, month):
         day = 1
         if request.method == 'GET':
-            # statistic = Statistic.objects.get(pk=pk, created_date=year - month - day)
             serializer = FirstViewSerializer(statistic)
             return Response(serializer.data)
         pass
