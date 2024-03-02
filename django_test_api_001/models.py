@@ -37,9 +37,6 @@ class Order(models.Model):
     def __str__(self):
         return f"{self.pk} Дата: {self.created_date}"
 
-# ФИО, количество клиентов, количество товаров, сумму продаж
-# id сотрудника, ФИО, количество клиентов, количество товаров, сумму продаж
-# id клиента, ФИО, количество купленных товаров, сумму продаж
 
 class Statistic(models.Model):
     full_name_employee = models.CharField(verbose_name=_("ФИО"), max_length=300)
