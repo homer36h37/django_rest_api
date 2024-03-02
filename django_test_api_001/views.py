@@ -30,7 +30,6 @@ class ViewDetail_One(generics.RetrieveAPIView):
         day = 1
         if request.method == 'GET':
             statistic = Statistic.objects.get(pk=pk, created_date=year - month - day)
-            # statistic = Statistic.objects.get(pk=pk)
             serializer = FirstViewSerializer(statistic)
             return Response(serializer.data)
         pass
@@ -45,7 +44,6 @@ class ViewDetail_Two(generics.ListAPIView):
         day = 1
         if request.method == 'GET':
             # statistic = Statistic.objects.get(pk=pk, created_date=year - month - day)
-            statistic = Statistic.objects.get(pk=pk)
             serializer = FirstViewSerializer(statistic)
             return Response(serializer.data)
         pass
@@ -58,11 +56,8 @@ class ViewDetail_Three(generics.RetrieveAPIView):
 
     def detail(self, request, pk, year, month):
         day = 1
-        # Note the use of `get_queryset()` instead of `self.queryset`
-        # Payload.objects.filter(user=user_id, timestamp__range=[start_date, end_date]
         if request.method == 'GET':
             statistic = Statistic.objects.get(pk=pk, created_date=year - month - day)
-            # statistic = Statistic.objects.get(pk=pk)
             serializer = ThirdViewSerializer(statistic)
             return Response(serializer.data)
         pass
