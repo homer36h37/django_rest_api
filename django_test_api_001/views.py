@@ -28,8 +28,6 @@ class ViewDetail_One(generics.RetrieveAPIView):
 
     def detail(self, request, pk, year, month):
         day = 1
-        # Note the use of `get_queryset()` instead of `self.queryset`
-        # Payload.objects.filter(user=user_id, timestamp__range=[start_date, end_date]
         if request.method == 'GET':
             statistic = Statistic.objects.get(pk=pk, created_date=year - month - day)
             # statistic = Statistic.objects.get(pk=pk)
@@ -45,8 +43,6 @@ class ViewDetail_Two(generics.ListAPIView):
 
     def detail(self, request, pk, year, month):
         day = 1
-        # Note the use of `get_queryset()` instead of `self.queryset`
-        # Payload.objects.filter(user=user_id, timestamp__range=[start_date, end_date]
         if request.method == 'GET':
             # statistic = Statistic.objects.get(pk=pk, created_date=year - month - day)
             statistic = Statistic.objects.get(pk=pk)
